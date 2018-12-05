@@ -1,0 +1,14 @@
+{
+  "name": "version-cli",
+  "version": "1.0.0",
+  "description": "a comman-line tool for update file version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "verr": "./bin/index.js"
+  },
+  "author": "scyuan",
+  "license": "ISC"
+}
