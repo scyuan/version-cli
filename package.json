@@ -1,14 +1,15 @@
 {
-  "name": "version-cli",
-  "version": "1.0.0",
-  "description": "a comman-line tool for update file version",
-  "main": "index.js",
+  "name": "jscss-version",
+  "version": "1.0.1",
+  "description": "一个自动更新版本号的小工具（a comman-line tool for update file version）",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "preferGlobal": true,
   "bin": {
     "verr": "./bin/index.js"
   },
-  "author": "scyuan",
+  "keywords": ["css", "js", "version", "css version", "js version", "js css version"],
+  "author": "scyuan <644397334@qq.com>",
   "license": "ISC"
 }
