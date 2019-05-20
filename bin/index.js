@@ -24,6 +24,8 @@ function getVersion() {
     fs.watch(`${des}${item}`, (eventType, filename) => {
       console.log(eventType);
       if (filename) {
+        let arr = filename.split('.');
+        let suffix = arr[arr.length - 1].toLocaleLowerCase();
         // 修改结果到目标文件
         let result = fs.readFileSync(target, {
           encoding: 'utf-8'
@@ -32,20 +34,20 @@ function getVersion() {
         switch (target_type) {
           case 'html':
             // 用来识别获取script以及script标签中的src内容
-            reg = /<script src=(.*)><\/script>/g;
+            reg = suffix == "js" ? /<script src=(.*)><\/script>/g : /<script src=(.*)><\/script>/g;
             break;
           case 'jade':
-            reg = /script\(src=(.*)\)/g;
+            reg = suffix == "js" ? /script\(src=(.*)\)/g : /link\(rel="stylesheet", href=(.*)\)/g;
             break;
           default:
             console.log('不支持该文件');
             return;
         }
-        var scripts_list = result.match(reg);
-        for (let i = 0; i < scripts_list.length; i++) {
-          if (scripts_list[i].indexOf(filename) > -1) {
+        var list = result.match(reg);
+        for (let i = 0; i < list.length; i++) {
+          if (list[i].indexOf(filename) > -1) {
             // 得到类似 script(src='js/main.js?v=2018080911171')
-            var script = scripts_list[i];
+            var script = list[i];
             // 得到类似  "../ddd/ddd/xxx.js";
             var script_file_name = (reg).exec(script)[1];
             var script_file_name_1 = script_file_name.replace(/"/g, '').replace(/'/g, '');
@@ -55,7 +57,7 @@ function getVersion() {
             fs.writeFileSync(target, result, {
               encoding: 'utf-8'
             })
-            console.log('更新成功');
+            console.log('更新成功11');
             break;
           }
         }

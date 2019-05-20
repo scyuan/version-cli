@@ -7,7 +7,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "verr": "./bin/index.js"
+    "verr": "./bin/index.js?v=1"
   },
   "keywords": ["css", "js", "version", "css version", "js version", "js css version"],
   "author": "scyuan <644397334@qq.com>",
