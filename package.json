@@ -1,6 +1,6 @@
 {
   "name": "jscss-version",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "一个自动更新版本号的小工具（a comman-line tool for update file version）",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
